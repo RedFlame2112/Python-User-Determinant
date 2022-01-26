@@ -4,6 +4,9 @@ def getCofactor(m, i, j):
     return [row[i:j] + row[j + 1:] for row in (m[:i] + m[i + 1:])]
 
 def det(A):
+    # case 1: matrix is nonsquare; dont calculate det in this case
+    if i != j:
+        return "nonexistent for nonsquare matrices!"
     # case 2: matrix is larger than 2 by 2
     if len(A) != 2:
         res = 0
@@ -13,7 +16,7 @@ def det(A):
             sub_det = det(getCofactor(A, 0, highlight_column))
             res += (sign * A[0][highlight_column] * sub_det)
         return res
-    # case 1: matrix is 2 by 2; we just use cross multiplication row and gg
+    # case 3: matrix is 2 by 2; we just use cross multiplication row and gg
     res = A[0][0] * A[1][1] - A[1][0] * A[0][1]
     return res
 
