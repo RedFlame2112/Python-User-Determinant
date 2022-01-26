@@ -1,5 +1,3 @@
-import math
-
 def getCofactor(m, i, j):
     return [row[i:j] + row[j + 1:] for row in (m[:i] + m[i + 1:])]
 
